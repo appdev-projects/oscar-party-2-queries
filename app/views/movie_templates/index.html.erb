@@ -1,16 +1,28 @@
-<h1>List of movies</h1>
+<nav aria-label="breadcrumb">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li>Movies</li>
+  </ul>
+</nav>
 
-<ul>
-  <% @list_of_movies.each do |movie| %>
-    <li>
-      <a href="/movies/<%= movie.id %>">
-        <img src="<%= movie.image %>" width="100">
+<article>
+  <header>
+    <h1>List of movies</h1>
+  </header>
 
-        <%= movie.title %> (<%= movie.year %>)
-        <% if movie.result == "won" %>
-          <strong>🏆</strong>
-        <% end %>
-      </a>
-    </li>
-  <% end %>
-</ul>
+  <ul>
+    <% @list_of_movies.each do |movie| %>
+      <li>
+        <a href="/movies/<%= movie.id %>">
+          <img src="<%= movie.image %>" width="100">
+
+          <%= movie.title %> (<%= movie.year %>)
+          <% if movie.result == "won" %>
+            <strong>🏆</strong>
+          <% end %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+
+</article>
