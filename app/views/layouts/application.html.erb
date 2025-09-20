@@ -17,41 +17,70 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
+    <!-- The official Pico CSS stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.conditional.css">
+
+    <!-- The official Bootstrap utilities stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/twbs/bootstrap@main/dist/css/bootstrap-utilities.css">
+
+    <!-- Our modifications to default Pico CSS styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/firstdraft/pico.firstdraft.css@latest/pico.firstdraft.css">
+
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <nav>
-      <ul>
-        <li>
-          <strong>
-            <a href="/">
-              Oscar Party (Queries)
+  <body class="pico">
+
+    <header>
+      <div class="container-two-thirds">
+        <nav>
+          <ul>
+            <li>
+              <strong>
+                <a href="/">
+                  Oscar Party (Queries)
+                </a>
+              </strong>
+            </li>
+            <li>
+              <a href="/movies">
+                Movies
+              </a>
+            </li>
+            <li>
+              <a href="/directors">
+                Directors
+              </a>
+            </li>
+            <li>
+              <a href="/actors">
+                Actors
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container-two-thirds">
+        <%= yield %>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container-two-thirds">
+        <div class="grid text-center">
+          <div>
+            <a href="/about">
+              About
             </a>
-          </strong>
-        </li>
-        <li>
-          <a href="/movies">
-            Movies
-          </a>
-        </li>
-        <li>
-          <a href="/directors">
-            Directors
-          </a>
-        </li>
-        <li>
-          <a href="/actors">
-            Actors
-          </a>
-        </li>
-      </ul>
-    </nav>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-    <%= yield %>
-
-    <a href="/about">About</a>
   </body>
 </html>
